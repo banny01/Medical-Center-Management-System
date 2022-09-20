@@ -1,0 +1,76 @@
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+
+.MYcontainer{
+    width: 28.7cm;
+    height: 20cm;
+    margin: 0.5cm 0.5cm 0.5cm 0.5cm;
+}
+.part1{
+    height: 20cm;    
+}
+.logo{
+    height: 2cm;
+}
+.nameDiv{
+    margin-top: -0.3cm;
+}
+.name{
+    font-size: 12px;
+    height: 3cm;
+}
+.cut{
+    font-size: 14px;
+    font-weight: bold;
+    background: rgba(255, 0, 0, 0.815);
+}
+.acc{
+    height: 1cm;
+}
+.accLable{
+    width: 2cm;
+}
+.lable{
+    font-size: 12px;
+}
+.brace{
+    font-size: 25px;
+}
+.table2 td{
+    border: 1px solid red;
+}
+.table3 td{
+    border: 1px solid #1976D2;
+}
+.table2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+.dataLable{
+font-size: 12px;
+width: 60%;
+}
+.dataLable1{
+    font-size: 12px;
+    width: 50%;
+    }
+.thisMonth{
+    background: rgb(255, 190, 190);
+}
+.officeContainer{
+    height: 3.3cm;
+    font-size: 12px;
+}
+.office{
+    height: 0.57cm;
+    font-size: 12px;
+}
+.printedText{
+    font-size: 13px;
+
+}
+@media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+}

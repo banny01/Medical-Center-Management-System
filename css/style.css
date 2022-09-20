@@ -1,0 +1,54 @@
+.backg{
+  background-image: url("../inc/img/back.png");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-color: rgba(0, 102, 255, 0.377);
+}
+
+.hbtn{
+  width: 180px; 
+  height: 90px;
+}
+.myContainer{
+  margin-top: 100px; 
+  margin-bottom: 80px;
+}
+p.error{
+	background: rgba(255, 0, 0, 0.7);
+	color: white;
+	padding: 10px;
+	margin: 20px;
+
+}
+
+p.done{
+	background: rgba(0, 89, 255, 0.7);
+	color: white;
+	padding: 10px;
+	margin: 20px;
+
+}
+.fixed {
+  white-space: nowrap; 
+  text-overflow:ellipsis; 
+  overflow: hidden; 
+  max-width:1px;
+}
+a.prev_link {
+  color: blue;
+}
+a.page_link {
+  color: blue;
+}
+a.next_link{
+  color: blue;
+}
+a.prev_link:hover {color: #1a2c00;}
+a.page_link:hover {color: #1a2c00;}
+a.next_link:hover {color: #1a2c00;}
+hr.solid {
+  border-top: 4px solid #999;
+}
+hr.solid2 {
+  border-top: 4px solid rgb(73, 0, 16);
+}
