@@ -17,7 +17,7 @@
         <i class="fa fa-home" aria-hidden="true"></i> Dashboard
       </a>
     </li>
-    <?php if($level == 0 || $level == 1){ ?>
+    <?php if($level == 0 || $level == 1 || $level == 2){ ?>
     <li>
     <a href="searchPatient.php">
         <i class="fa fa-search" aria-hidden="true"></i> Search Patients
@@ -66,7 +66,7 @@
         <ul class="dropdown-menu animated fadeInLeft" role="menu" style="background-color: black;">
             <div class="dropdown-header">Users</div>
             <li><a href="addUser.php">Add User</a></li>
-            <li><a href="user.php">Manage Users</a></li>
+            <li><a href="manageUser.php">Manage Users</a></li>
         </ul>
     </li>
     <?php } ?>

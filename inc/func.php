@@ -54,59 +54,9 @@ function addEmployee($con){
                 
 }
 
-function addUser($con){
-    $errors = 0;
-    if (isset($_POST['submit'])){
-        
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        $empID = $_POST['empID'];
-        $role = $_POST['role'];
-
-        $query = "SELECT * FROM user WHERE UserID = '{$userName}' OR EmpID = '{$empID}'";
-        $result_set = mysqli_query($con, $query);
-        $query3 = "SELECT * FROM employee WHERE EmpID = '{$empID}'";
-        $result_set3 = mysqli_query($con, $query3);
-
-        if (mysqli_num_rows($result_set) > 0) {
-            $errors = 1;
-        }
-        if (mysqli_num_rows($result_set3) == 0) {
-            $errors = 4;
-        }
-        if ($errors == 0) {             
-
-            $query2 = "INSERT INTO user (UserID, Password, EmpID, Level) VALUES ('{$userName}', '{$password}', '{$empID}', '{$role}')";
-            $result_set2 = mysqli_query($con, $query2);
-            
-            if ($result_set2) {
-                $errors = 2;               
-            }
-            else{
-                $errors = 3;
-            }
-        }
-    }
-    
-    return $errors;
-                
-}
 
 
 
-function deletCus($con){
-    $errors = 1;
-    if(isset($_POST['delete'])){
-        $id = $_POST['delete'];
-        $query = "DELETE FROM customer WHERE CusID = '{$id}' AND DepID = 1";
-        $result_set = mysqli_query($con, $query);
-        if ($result_set) {
-            $errors = 0;               
-        }
-
-    }
-    return $errors;
-}
 
 function cLedger($con, $status){
     date_default_timezone_set("Asia/Colombo");
@@ -256,44 +206,9 @@ function deletEmp($con){
     return $errors;
 }
 
-function user($con){
-    $resultset = null;
-    if(isset($_GET['search'])){
-        $search = $_GET['search'];
-        $sql_query = "SELECT * FROM user WHERE UserID LIKE '%{$search}%'";
-        $resultset = mysqli_query($con, $sql_query);
-    }
-    else{
-        $sql_query = "SELECT * FROM user";
-        $resultset = mysqli_query($con, $sql_query);
-    }
-    return $resultset;
-}
 
-function deleteUser($con){
-    $errors = 1;
-    if(isset($_POST['delete'])){
-        $id = $_POST['delete'];
-        $query = "DELETE FROM user WHERE UserID = '{$id}'";
-        $result_set = mysqli_query($con, $query);
-        if ($result_set) {
-            $errors = 0;               
-        }
 
-    }
-    return $errors;
-}
 
-function loadCustomer($con){
-    $developer = null;
-    if(isset($_GET['id'])){
-        $search = $_GET['id'];
-        $sql_query = "SELECT * FROM customer WHERE CusID = '{$search}' AND DepID = 1";
-        $resultset = mysqli_query($con, $sql_query);
-        $developer = mysqli_fetch_assoc($resultset);
-    }
-    return $developer;
-}
 
 function loadEmployee($con){
     $developer = null;
@@ -306,22 +221,7 @@ function loadEmployee($con){
     return $developer;
 }
 
-function loadUser($con){
-    $developer = null;
-    if(isset($_GET['id'])){
-        $search = $_GET['id'];
-        $sql_query = "SELECT * FROM user WHERE ID = '{$search}'";
-        $resultset = mysqli_query($con, $sql_query);
-        $developer = mysqli_fetch_assoc($resultset);
-    }
-    else if(isset($_POST['myAcc'])){
-        $search = $_POST['myAcc'];
-        $sql_query = "SELECT * FROM user WHERE ID = '{$search}'";
-        $resultset = mysqli_query($con, $sql_query);
-        $developer = mysqli_fetch_assoc($resultset);
-    }
-    return $developer;
-}
+
 
 function loadRates($con, $id, $dep){
     $developer = null;
@@ -372,34 +272,7 @@ function editRates($con){
     return $errors;
 }
 
-function editCustomer($con){
-    $errors = 0;
-    if (isset($_POST['submit'])){
-        
-        $cusID = $_POST['cusID'];
-        $cusName = $_POST['cusName'];
-        $cusNIC = $_POST['cusNIC'];
-        $cusCont = $_POST['cusCont'];
-        $cusAddress = $_POST['cusAddress'];
-        $cusDivision = $_POST['division'];
-        $memberDate = $_POST['memberDate'];
-        $meterID = $_POST['meterID'];
-        $meterVal = $_POST['meterVal'];        
-        $connection = $_POST['connection'];        
-        
-        $query = "UPDATE customer SET CusID = '{$cusID}', Name = '{$cusName}', Address = '{$cusAddress}', Division = '{$cusDivision}', Contact = '{$cusCont}', NIC = '{$cusNIC}', MeterID = '{$meterID}', MeterValue = '{$meterVal}', MembershipDate = '{$memberDate}', Connection = '{$connection}', DepID = '1' WHERE CusID = '{$cusID}' AND DepID = 1";
-        $result_set = mysqli_query($con, $query);
-        
-        if ($result_set) {
-            echo "<script> alert('Successfuly Updated.!'); window.location.href = 'customer.php';</script>";
-            //header('Location: customer.php');
-        }
-        else{
-            echo "<script> alert('Not Updated.! Please try again.')</script>";
-        }
-    }    
-    return $errors;                
-}
+
 
 function editEmployee($con){
     $errors = 0;
@@ -431,33 +304,7 @@ function editEmployee($con){
     return $errors;                
 }
 
-function editUser($con){
-    $errors = 0;
-    if (isset($_POST['submit'])){
-        
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        $empID = $_POST['empID'];
-        $role = $_POST['role'];
-        $id = $_POST['ID'];
 
-        $query = "UPDATE user SET UserID = '{$userName}', Password = '{$password}', EmpID = '{$empID}', Level = '{$role}' WHERE ID = '{$id}'";
-        $result_set = mysqli_query($con, $query);
-        
-        if ($result_set) {
-            if(isset($_POST['myAcc']))
-                echo "<script> alert('Successfuly Updated.!');</script>";
-
-            else
-                echo "<script> alert('Successfuly Updated.!'); window.location.href = 'user.php';</script>";
-            //header('Location: customer.php');
-        }
-        else{
-            echo "<script> alert('Not Updated.! Please try again.')</script>";
-        }
-    }    
-    return $errors;                
-}
 
 function noPay($con, $loggedDet){
     $error = -1;

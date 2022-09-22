@@ -20,7 +20,7 @@
     <script src="js/jquery.nicescroll.min.js"></script>
 
     
-    <title>User - Water Supply</title>
+    <title>User</title>
 </head>
 <body class="container-fluid backg">
 
@@ -48,7 +48,7 @@
                 <button type="button" onclick="search()" class="btn btn-primary">
                     <i class="fas fa-search"></i>
                 </button>
-                <button type="button" onclick="location.href='user'" class="btn btn-danger ml-1">Reset</button>
+                <button type="button" onclick="location.href='manageUser'" class="btn btn-danger ml-1">Reset</button>
             </div>
 
             <script src="js/jquery-1.11.1.min.js"></script> <!-- Table with Pagination -->
@@ -58,30 +58,44 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>User Name</th>
-                                    <th>Employee ID</th>
-                                    <th>User Level</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Gender</th>
+                                    <th>gender</th>
+                                    <th>Address</th>
+                                    <th>Contact</th>
+                                    <th>Details</th>
+                                    <th>Note</th>
                                 </tr>
                             </thead>
                             <tbody id="myTable">
                             <?php 
                             $resultset = user($con);
+                            $i = 1;
                             while( $developer = mysqli_fetch_assoc($resultset) ) {
                             ?>
                                 <tr>
-                                    <td><?php echo $developer ['UserID']; ?></td>
-                                    <td><?php echo $developer ['EmpID']; ?></td>
-                                    <td><?php echo $developer ['Level']; ?></td>
+                                    <td style="font-weight: bold;"><?php echo $i; ?></td>
+                                    <td title="<?php echo $developer ['userName']; ?>"><?php echo $developer ['userName']; ?></td>
+                                    <td title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
+                                    <td title="<?php echo $developer ['designation']; ?>"><?php echo $developer ['designation']; ?></td>
+                                    <td title="<?php echo $developer ['gender']; ?>"><?php echo $developer ['gender']; ?></td>
+                                    <td class="fixed" title="<?php echo $developer ['address']; ?>"><?php echo $developer ['address']; ?></td>
+                                    <td title="<?php echo $developer ['phone']; ?>"><?php echo $developer ['phone']; ?></td>
+                                    <td class="fixed" title="<?php echo $developer ['special']; ?>"><?php echo $developer ['special']; ?></td>
+                                    <td class="fixed" title="<?php echo $developer ['note']; ?>"><?php echo $developer ['note']; ?></td>
                                     <td>
-                                        <button type="button" onclick="edit('<?php echo $developer ['ID']; ?>')" class="btn btn-success">
+                                        <button type="button" onclick="edit('<?php echo $developer ['id']; ?>')" class="btn btn-success">
                                             <i class="fas fa-edit"></i>
                                         </button>
-                                        <button type="button" onclick="delete1('<?php echo $developer ['UserID']; ?>')" class="btn btn-danger">
+                                        <button type="button" onclick="delete1('<?php echo $developer ['id']; ?>')" class="btn btn-danger">
                                             <i class="fa fa-eraser" aria-hidden="true"></i>
                                         </button>
                                     </td>		  
                                 </tr>
-                                <?php } ?>
+                                <?php $i++; } ?>
                             </tbody>
                         </table>   
                     </div>
@@ -211,7 +225,7 @@
 
     function search(){
         var text = document.getElementById("form1").value;
-        var link = "user.php?search="+text;
+        var link = "manageUser.php?search="+text;
         window.location.href = link;
 
     }
@@ -223,7 +237,7 @@
         params = {delete: id};
         const form = document.createElement('form');
         form.method = "post";
-        form.action = "user.php";
+        form.action = "manageUser.php";
 
         for (const key in params) {
             if (params.hasOwnProperty(key)) {
@@ -242,5 +256,33 @@
 
     
 </script>
-
 </html>
+<?php
+function user($con){
+    $resultset = null;
+    if(isset($_GET['search'])){
+        $search = $_GET['search'];
+        $sql_query = "SELECT * FROM user WHERE userName LIKE '%{$search}%'";
+        $resultset = mysqli_query($con, $sql_query);
+    }
+    else{
+        $sql_query = "SELECT * FROM user";
+        $resultset = mysqli_query($con, $sql_query);
+    }
+    return $resultset;
+}
+
+function deleteUser($con){
+    $errors = 1;
+    if(isset($_POST['delete'])){
+        $id = $_POST['delete'];
+        $query = "DELETE FROM user WHERE id = '{$id}'";
+        $result_set = mysqli_query($con, $query);
+        if ($result_set) {
+            $errors = 0;               
+        }
+
+    }
+    return $errors;
+}
+?>

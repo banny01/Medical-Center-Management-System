@@ -69,7 +69,7 @@
                 </a>
                 <a href="manageAppointment.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-share" aria-hidden="true"></i><br>Manage Appointments
+                        <i class="fa fa-braille" aria-hidden="true"></i><br>Manage Appointments
                     </button>
                 </a>
                 <?php } 
