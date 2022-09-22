@@ -33,7 +33,7 @@
                 <p id="date"></p>
             </div>  
         </div>
-        <div class="col-md-2 navbar navbar-expand-lg navbar-light h5">Welcome <?php echo $loggeduser['name']; ?> !</div>
+        <div class="col-md-2 navbar navbar-expand-lg navbar-light h5">Welcome <?php echo explode(" ", $loggeduser['name'])[0]; ?> !</div>
         <div class="col-md-2 navbar navbar-expand-lg navbar-light" >
             <form method="post" action="editMyAcc.php">
                 <input type="hidden" name="myAcc" value="<?php echo $uID; ?>" />
