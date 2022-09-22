@@ -19,7 +19,7 @@
     <script src="js/solid.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     
-    <title>Dashboard - Water Supply</title>
+    <title>Medical Center - Dashboard</title>
 </head>
 <body class="container-fluid backg">
 
@@ -84,6 +84,7 @@
             <?php } 
             if($level == 0){ ?>
             <div class="offset-1 mt-2">
+                <div class="clo h5 mt-4">User</div>
                 <a href="addUser.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
                         <i class="fa fa-user-circle" aria-hidden="true"></i><br>Add User

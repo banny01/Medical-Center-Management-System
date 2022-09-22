@@ -55,32 +55,6 @@
         </ul>     
     </li>
     <?php } ?>
-    <li>
-        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">
-            <i class="fa fa-credit-card" aria-hidden="true"></i> Bills & Payments
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu animated fadeInLeft" role="menu" style="background-color: black;">
-            <div class="dropdown-header">Bills & Payments</div>
-            <li><a href="billing.php">Customer Billing</a></li>
-            <li><a href="cBill.php">Collect Bills</a></li>
-            <li><a href="cPay.php">Customer Payments</a></li>
-            <li><a href="sPay.php">Salary Payments</a></li>
-            <li><a href="oCost.php">Other Costs</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">
-            <i class="fa fa-file-pdf" aria-hidden="true"></i> Reports
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu animated fadeInLeft" role="menu" style="background-color: black;">
-            <div class="dropdown-header">Reports</div>
-            <li><a href="income.php">Income Report</a></li>
-            <li><a href="expense.php">Expense Report</a></li>
-            <li><a href="profit.php">Profit Report</a></li>
-        </ul>
-    </li>
 
     <li class="header">Software Settings</li>
     <?php if($level == 0){ ?>
@@ -96,11 +70,6 @@
         </ul>
     </li>
     <?php } ?>
-    <li>
-      <a href="rates.php">
-        <i class="fa fa-industry" aria-hidden="true"></i> Rates
-      </a>
-    </li>
     <li>
       <a href="info.php">
         <i class="fa fa-info-circle" aria-hidden="true"></i> Information
