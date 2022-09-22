@@ -9,7 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 	<title>Medical Center Management System - Login</title>
-    <link rel="icon"  href="inc/img/favicon.png">
+    <link rel="icon"  href="img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.min.js"></script>
@@ -59,7 +59,7 @@
     <div class="row text-center " style="margin-top: 7%">
         <div class="col-md-4 offset-md-4 col-xs-8 offset-xs-2"> 		
             <form class="form-signin" action='login.php' method="post"> 
-                <img class="mb-4" src="inc/img/Logo.png" alt="" width="128" height="128">
+                <img class="mb-4" src="img/Logo.png" alt="" width="128" height="128">
                 <fieldset class="form-control"> 
                     <legend><h1 class="h1 mb-3 font-weight-normal">Log In</h1></legend>
                     <?php if ($errors==1) {

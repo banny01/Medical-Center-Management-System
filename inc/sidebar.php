@@ -6,7 +6,7 @@
 
 <div class="sidebar-container">
     <a href="index.php">
-        <img class="mb-2 mt-2 offset-3" src="inc/img/Logo.png" alt="" width="72" height="72"> 
+        <img class="mb-2 mt-2 offset-3" src="img/Logo.png" alt="" width="72" height="72"> 
     </a>
   <div class="sidebar-logo">
     Main Menu

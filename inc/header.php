@@ -18,13 +18,13 @@
     }
 ?>
 
-<link rel="icon"  href="favicon.ico">
+<link rel="icon"  href="img/favicon.png">
 
 <div class="container-fluid text-white bg-dark" style="height: 88px; position: fixed; z-index: 10;">
     <div class="row">
         <div class="col-md-2 col-sm-2">
             <a href="index.php">
-                <img class="mb-2 mt-2 offset-3" src="inc/img/Logo.png" alt="" width="72" height="72"> 
+                <img class="mb-2 mt-2 offset-3" src="img/Logo.png" alt="" width="72" height="72"> 
             </a>
         </div>
         <div class="col-md-5 offset-1 col-sm-10">
