@@ -6,11 +6,11 @@
     if (isset($_SESSION['UserID'])) {
         # code...
         $loggedDet = $_SESSION['UserID'];
-        $query2 = "SELECT * FROM user WHERE UserID = '$loggedDet'";
+        $query2 = "SELECT * FROM user WHERE userName = '$loggedDet'";
         $res2 = mysqli_query($con, $query2);
         $loggeduser = mysqli_fetch_assoc($res2);
-        $level = $loggeduser['Level'];
-        $uID = $loggeduser['ID'];
+        $level = $loggeduser['designation'];
+        $uID = $loggeduser['id'];
         
     }
     else{
@@ -27,14 +27,14 @@
                 <img class="mb-2 mt-2 offset-3" src="inc/img/Logo.png" alt="" width="72" height="72"> 
             </a>
         </div>
-        <div class="col-md-6 offset-1 col-sm-10">
+        <div class="col-md-5 offset-1 col-sm-10">
             <div id="div1">
                 <p id="time"></p>
                 <p id="date"></p>
             </div>  
         </div>
-        <div class="col-md-3 navbar navbar-expand-lg navbar-light" >
-            <a class="nav-item nav-link" href="cleaning">Water Cleaning</a>
+        <div class="col-md-2 navbar navbar-expand-lg navbar-light">Welcome <?php echo $loggeduser['name']; ?> !</div>
+        <div class="col-md-2 navbar navbar-expand-lg navbar-light" >
             <form method="post" action="editMyAcc.php">
                 <input type="hidden" name="myAcc" value="<?php echo $uID; ?>" />
                 <a class="nav-item nav-link" href="#" onclick="this.parentNode.submit();">Account</a>

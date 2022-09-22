@@ -8,7 +8,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
-	<title>Water Supply Login</title>
+	<title>Medical Center Management System - Login</title>
     <link rel="icon"  href="inc/img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="js/bootstrap.min.js"></script>
@@ -33,7 +33,7 @@
             $UserName = $_POST['UserName'];
             $Password = $_POST['UserPassword'];
 
-            $query = "SELECT * FROM user WHERE UserID = '{$UserName}' AND Password = '{$Password}'";
+            $query = "SELECT * FROM user WHERE userName = '{$UserName}' AND password = '{$Password}'";
 
             $result_set = mysqli_query($con, $query);
 
@@ -41,7 +41,7 @@
                 
                 if (mysqli_num_rows($result_set)==1) {
                     $loggedDet = mysqli_fetch_assoc($result_set);
-                    $_SESSION['UserID'] = $loggedDet['UserID'];
+                    $_SESSION['UserID'] = $loggedDet['userName'];
                     
                     header("Location: index.php");
                 }

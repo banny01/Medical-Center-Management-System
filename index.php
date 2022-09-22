@@ -34,51 +34,68 @@
 
         <div class="col-md-10 mt-2"> <!-- This div for the content -->
             <h5>Dashboard</h5>
+            <?php if($level == 0 || $level == 1 || $level == 2){ ?>
+            <div class="offset-1 mt-4">
+                <div class="clo h5 mt-2">Patient</div>
+                <?php if($level == 0 || $level == 2){ ?>
+                <a href="addPatient.php">
+                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i><br>Add Patient
+                    </button>
+                </a>
+                <a href="managePatient.php">
+                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
+                        <i class="fa fa-address-card" aria-hidden="true"></i><br>Manage Patients
+                    </button>
+                </a>
+                <?php } 
+                if($level == 0 || $level == 1){ ?>
+                <a href="searchPatient.php">
+                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
+                        <i class="fa fa-search" aria-hidden="true"></i><br>Search Patients
+                    </button>
+                </a>
+                <?php } ?>
+            </div>
+            <?php } 
+            if($level == 0 || $level == 1 || $level == 2){ ?>
             <div class="offset-1 mt-2">
-                <a href="cPay.php">
+                <div class="clo h5 mt-4">Appointment</div>
+                <?php if($level == 0 || $level == 2){ ?>
+                <a href="addAppointment.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-credit-card" aria-hidden="true"></i><br>Customer Payments
+                        <i class="fa fa-calendar-check" aria-hidden="true"></i><br>Add Appointment
                     </button>
                 </a>
-                <a href="oCost.php">
+                <a href="manageAppointment.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i><br>Other Costs
+                        <i class="fa fa-share" aria-hidden="true"></i><br>Manage Appointments
                     </button>
                 </a>
-                <a href="billing.php">
+                <?php } 
+                if($level == 0 || $level == 1){ ?>
+                <a href="myAppointment.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-file" aria-hidden="true"></i><br>Customer Billing
+                        <i class="fa fa-calendar" aria-hidden="true"></i><br>My Appointments
                     </button>
                 </a>
-                <a href="cBill.php">
+                <?php } ?>
+            </div>
+            <?php } 
+            if($level == 0){ ?>
+            <div class="offset-1 mt-2">
+                <a href="addUser.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-paperclip" aria-hidden="true"></i><br>Collect Bills
+                        <i class="fa fa-user-circle" aria-hidden="true"></i><br>Add User
+                    </button>
+                </a>
+                <a href="manageUser.php">
+                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
+                        <i class="fa fa-id-card" aria-hidden="true"></i><br>Manage User
                     </button>
                 </a>
             </div>
-            <div class="offset-1 mt-2">
-                <a href="addCustomer.php">
-                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i><br>Add Customer
-                    </button>
-                </a>
-                <a href="addEmployee.php">
-                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i><br>Add Employee
-                    </button>
-                </a>
-                <a href="addNoPay.php">
-                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-share" aria-hidden="true"></i><br>Add No Pay Leaves
-                    </button>
-                </a>
-                <a href="rates.php">
-                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-list-ol" aria-hidden="true"></i><br>Rates
-                    </button>
-                </a>
-            </div>
-            
+            <?php } ?>
         </div>
 
     </div>

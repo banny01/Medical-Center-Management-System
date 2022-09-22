@@ -17,30 +17,41 @@
         <i class="fa fa-home" aria-hidden="true"></i> Dashboard
       </a>
     </li>
-    <?php if($level == 1){ ?>
+    <?php if($level == 0 || $level == 1){ ?>
+    <li>
+    <a href="searchPatient.php">
+        <i class="fa fa-search" aria-hidden="true"></i> Search Patients
+    </a>
+    </li>
+    <?php } 
+    if($level == 0 || $level == 2){ ?>
     <li>
         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">
-            <i class="fa fa-users" aria-hidden="true"></i> Customer
+            <i class="fa fa-users" aria-hidden="true"></i> Patient
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu animated fadeInLeft" role="menu" style="background-color: black;">
-            <div class="dropdown-header">Customer</div>
-            <li><a href="addCustomer.php">Add Customer</a></li>
-            <li><a href="customer.php">Manage Customer</a></li>
-            <li><a href="cLedger.php">Customer Ledger</a></li>
+            <div class="dropdown-header">Patient</div>
+            <li><a href="addPatient.php">Add Patient</a></li>
+            <li><a href="managePatient.php">Manage Patient</a></li>
         </ul>
     </li>
-    
+    <?php } 
+    if($level == 0 || $level == 1 || $level == 2){ ?>
     <li>
         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">
-            <i class="fa fa-suitcase" aria-hidden="true"></i> Employee
+            <i class="fa fa-calendar" aria-hidden="true"></i> Appointment
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu animated fadeInLeft" role="menu" style="background-color: black;">
-            <div class="dropdown-header">Employee</div>
-            <li><a href="addEmployee.php">Add Employee</a></li>
-            <li><a href="employee.php">Manage Employee</a></li>
-            <li><a href="addNoPay.php">Add No Pay Leaves</a></li>
+            <div class="dropdown-header">Appointment</div>
+            <?php if($level == 0 || $level == 2){ ?>
+            <li><a href="addAppointment.php">Add Appointment</a></li>
+            <li><a href="manageAppointment.php">Manage Appointments</a></li>
+            <?php } 
+            if($level == 0 || $level == 1){ ?>
+            <li><a href="myAppointment.php">My Appointments</a></li>
+            <?php } ?>
         </ul>     
     </li>
     <?php } ?>
@@ -72,6 +83,7 @@
     </li>
 
     <li class="header">Software Settings</li>
+    <?php if($level == 0){ ?>
     <li>
         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">
             <i class="fa fa-user-circle" aria-hidden="true"></i> Users
@@ -82,8 +94,8 @@
             <li><a href="addUser.php">Add User</a></li>
             <li><a href="user.php">Manage Users</a></li>
         </ul>
-     
     </li>
+    <?php } ?>
     <li>
       <a href="rates.php">
         <i class="fa fa-industry" aria-hidden="true"></i> Rates
