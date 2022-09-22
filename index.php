@@ -35,8 +35,8 @@
         <div class="col-md-10 mt-2"> <!-- This div for the content -->
             <h5>Dashboard</h5>
             <?php if($level == 0 || $level == 1 || $level == 2){ ?>
-            <div class="offset-1 mt-4">
-                <div class="clo h5 mt-2">Patient</div>
+            <div class="offset-1 mt-2">
+                <div class="clo h5 mt-4">Patient</div>
                 <?php if($level == 0 || $level == 2){ ?>
                 <a href="addPatient.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">

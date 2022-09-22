@@ -1,54 +1,17 @@
 <?php
-function userManage($level, $permission){
-    if($level > $permission)
-        header('Location: index.php');
-}
-function addCustomer($con){
-    $errors = 0;
-    if (isset($_POST['submit'])){
-        
-        $cusID = $_POST['cusID'];
-        $cusName = $_POST['cusName'];
-        $cusNIC = $_POST['cusNIC'];
-        $cusCont = $_POST['cusCont'];
-        $cusAddress = $_POST['cusAddress'];
-        $cusDivision = $_POST['division'];
-        $memberDate = $_POST['memberDate'];
-        $meterID = $_POST['meterID'];
-        $meterVal = $_POST['meterVal'];
-        $connection = $_POST['connection'];
-        
-        $query = "SELECT * FROM customer";
-        $result_set = mysqli_query($con, $query);
-        if (mysqli_num_rows($result_set) <= 20) { // 20 Customer Trial
-
-            $query = "SELECT * FROM customer WHERE CusID = '{$cusID}' AND DepID = 1";
-            $result_set = mysqli_query($con, $query);
-
-            if (mysqli_num_rows($result_set) > 0) {
-                $errors = 1;
-            }
-            if ($errors == 0) {             
-
-                $query2 = "INSERT INTO customer VALUES ('{$cusID}', '{$cusName}', '{$cusAddress}', '{$cusDivision}', '{$cusCont}', '{$cusNIC}', '{$meterID}', '{$meterVal}', '{$memberDate}', '{$connection}', '1')";
-                $result_set2 = mysqli_query($con, $query2);
-                
-                if ($result_set2) {
-                    $errors = 2;               
-                }
-                else{
-                    $errors = 3;
-                }
-            }
-        }
-        else{
-            header('Location: help.php');
+function userManage($level, $permissions){
+    $sup = 0;
+    foreach ($permissions as $permission){
+        if($level == $permission){
+            $sup = 1;
+            break;
         }
     }
-    
-    return $errors;
-                
+    if($sup == 0){
+        header('Location: index.php');
+    }    
 }
+
 
 function addEmployee($con){
     $errors = 0;
@@ -129,19 +92,7 @@ function addUser($con){
                 
 }
 
-function customer($con){
-    $resultset = null;
-    if(isset($_GET['search'])){
-        $search = $_GET['search'];
-        $sql_query = "SELECT * FROM customer WHERE CusID = '{$search}' OR Name LIKE '%{$search}%' AND DepID = 1";
-        $resultset = mysqli_query($con, $sql_query);
-    }
-    else{
-        $sql_query = "SELECT * FROM customer WHERE DepID = 1";
-        $resultset = mysqli_query($con, $sql_query);
-    }
-    return $resultset;
-}
+
 
 function deletCus($con){
     $errors = 1;
