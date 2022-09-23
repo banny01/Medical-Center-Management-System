@@ -18,7 +18,7 @@
     }
 ?>
 
-<link rel="icon"  href="img/favicon.png">
+<link rel="icon"  href="favicon.ico">
 
 <div class="container-fluid text-white bg-dark" style="height: 88px; position: fixed; z-index: 10;">
     <div class="row">
