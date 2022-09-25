@@ -479,63 +479,7 @@ function sPayDet($con, $loggedDet){
     return $res;
 }
 
-function cBill($con, $loggedDet){
-    date_default_timezone_set("Asia/Colombo");
-    $today = date("Y-m-d");
-    $AI = autoIncrement($con, 'ID', 'customerledger', 1);
-    $errors = -1;
-    if (isset($_POST['submit'])){
-        
-        $billID = $_POST['billID'];
-        $cusID = $_POST['accNO'];
-        $readValue = $_POST['ReadValue'];
-        $units = $_POST['units'];
-        $ammount = $_POST['ammount'];
-        $totalStatus = $_POST['totalStatus'];
-        $total = $_POST['total'];
-        $other = 0;
-        if($_POST['other'] != ""){
-            $other = $_POST['other'];
-        }
 
-        $query = "INSERT INTO customerledger (ID, CusID, Des, Status, Amount, DoneBy, DepID) VALUES ('{$AI}', '{$cusID}', 'Bill-{$billID}', 'DR', '{$ammount}', '{$loggedDet}', 1)";
-        $result_set = mysqli_query($con, $query);
-        
-        if ($result_set) {
-            $query2 = "UPDATE bill SET ReadValue = '{$readValue}', Units = '{$units}', Other = '{$other}', Amount = '{$ammount}', TotalStatus = '{$totalStatus}', Total = '{$total}', CheckedBy = '{$loggedDet}', CheckedDate = '{$today}' WHERE BillID = '{$billID}' AND DepID = 1";
-            $result_set2 = mysqli_query($con, $query2);
-
-            if ($result_set2) {
-                $query3 = "UPDATE customer SET MeterValue = '{$readValue}' WHERE CusID = '{$cusID}' AND DepID = 1";
-                $result_set3 = mysqli_query($con, $query3);
-
-                if ($result_set3) {
-                    $errors = 0;
-                }
-                else{
-                    $errors = 1;
-                    $query5 = "UPDATE bill SET ReadValue = NULL, Units = NULL, Other = NULL, Amount = NULL, TotalStatus = '', Total = NULL, CheckedBy = NULL, CheckedDate = NULL WHERE BillID = '{$billID}' AND DepID = 1";
-                    mysqli_query($con, $query5);
-                    $query6 = "DELETE FROM customerledger WHERE ID = {$AI}";
-                    mysqli_query($con, $query6);
-                }
-            }
-            else{
-                $errors = 1;
-                $query7 = "DELETE FROM customerledger WHERE ID = {$AI}";
-                mysqli_query($con, $query7);
-            }              
-        }
-        else{
-            $errors = 1;
-        }
-    }
-
-    if($errors == 1)
-        echo "<script> alert('Recode Not Saved.! Please check and try again.');</script>";
-    
-    return $errors;
-}
 
 function loadCPay($con){
     $errors = 0;
