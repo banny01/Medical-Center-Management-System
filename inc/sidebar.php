@@ -47,7 +47,6 @@
             <div class="dropdown-header">Appointment</div>
             <?php if($level == 0 || $level == 2){ ?>
             <li><a href="addAppointment.php">Add Appointment</a></li>
-            <li><a href="manageAppointment.php">Manage Appointments</a></li>
             <?php } 
             if($level == 0 || $level == 1){ ?>
             <li><a href="myAppointment.php">My Appointments</a></li>

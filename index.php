@@ -67,11 +67,6 @@
                         <i class="fa fa-calendar-check" aria-hidden="true"></i><br>Add Appointment
                     </button>
                 </a>
-                <a href="manageAppointment.php">
-                    <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
-                        <i class="fa fa-braille" aria-hidden="true"></i><br>Manage Appointments
-                    </button>
-                </a>
                 <?php } 
                 if($level == 0 || $level == 1){ ?>
                 <a href="myAppointment.php">

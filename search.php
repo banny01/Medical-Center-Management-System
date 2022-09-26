@@ -12,7 +12,7 @@ include_once('inc/connection.php');
             $time2 = $timestamp + (30 * 60);
             $datetime1 = date("Y-m-d H:i:s", $time1);
             $datetime2 = date("Y-m-d H:i:s", $time2);
-            $query = "SELECT COUNT(id) as count FROM appointment WHERE date BETWEEN '{$datetime1}' AND '{$datetime2}'";
+            $query = "SELECT COUNT(id) as count FROM appointment WHERE date BETWEEN '{$datetime1}' AND '{$datetime2}' AND cancel = 0;";
             $result_set = mysqli_query($con, $query);
         } else {
             $id = $data->id;
