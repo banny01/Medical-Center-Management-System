@@ -78,21 +78,15 @@
                     <div class="offset-1 mt-2">
                         <div>
                             <?php if($level == 0 || $level == 1){ ?>
-                            <a href="managePatient.php">
-                                <button type="button" class="col-md-3 btn btn-light mr-4 mt-2">
-                                    <i class="fa fa-stethoscope" aria-hidden="true"></i><br>View Diseases
-                                </button>
-                            </a>
-                            <a href="managePatient.php">
-                                <button type="button" class="col-md-3 btn btn-light mr-4 mt-2">
-                                    <i class="fa fa-medkit" aria-hidden="true"></i><br>View Medicines
-                                </button>
-                            </a>
-                            <a href="searchPatient.php">
-                                <button type="button" class="col-md-3 btn btn-light mr-4 mt-2">
+                            <button type="button" onclick="manageDiseases()" class="col-md-3 btn btn-light mr-4 mt-2">
+                                <i class="fa fa-stethoscope" aria-hidden="true"></i><br>View Diseases
+                            </button>
+                            <button type="button" onclick="manageMedicines()" class="col-md-3 btn btn-light mr-4 mt-2">
+                                <i class="fa fa-medkit" aria-hidden="true"></i><br>View Medicines
+                            </button>
+                                <button type="button" onclick="manageResutls()" class="col-md-3 btn btn-light mr-4 mt-2">
                                     <i class="fa fa-list" aria-hidden="true"></i><br>View Test Resutls
                                 </button>
-                            </a>
                             <?php } ?>
                         </div>
                         <div>
@@ -139,12 +133,28 @@
         $(".alert").alert('close');
     }, 5000);
     
+    function manageDiseases(){
+        search = document.getElementById("pID").value;
+        window.open('manageDiseases.php?pID='+search);
+    }
+
+    function manageMedicines(){
+        search = document.getElementById("pID").value;
+        window.open('manageMedicines.php?pID='+search);
+    }
+
+    function manageResutls(){
+        search = document.getElementById("pID").value;
+        window.open('manageResutls.php?pID='+search);
+    }
+
     function search(pID){
         var search = "";
         if(pID == ""){
             search = document.getElementById("pID").value;
         } else{
             search = pID;
+            document.getElementById("pID").value = pID;
         }
         let data = {id: search};
         var Url = "search.php";
@@ -171,6 +181,7 @@
             }
         }
     }
+    
 </script>
 </html>
 <?php

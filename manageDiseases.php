@@ -29,8 +29,7 @@
         include_once('inc/header.php');
         include_once('inc/func.php');
         include_once('inc/connection.php');
-        userManage($level, array(0,2));
-        $errors = deletPat($con);
+        userManage($level, array(0,1));
         ?>
         
     </div>
@@ -40,20 +39,9 @@
         </div>
 
         <div class="col-md-10 mt-2"> <!-- This div for the content -->
-            <h5>Patient</h5>
-            
-            <div class="col-md-4 input-group offset-8 mb-2">
-                <div class="form-outline">
-                    <input type="search" id="form1" class="form-control" placeholder="Search Name or ID"/>
-                </div>
-                <button type="button" onclick="search()" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button type="button" onclick="location.href='managePatient.php'" class="btn btn-danger ml-1">Reset</button>
-            </div>
-
+            <h5>Diseases</h5>
             <script src="js/jquery-1.11.1.min.js"></script> <!-- Table with Pagination -->
-            <div class="container">
+            <div class="container mt-4">
                 <div class="row">
                     <div class="table-responsive">
                     <table class="table table-hover">
@@ -71,9 +59,9 @@
                                     while( $developer = mysqli_fetch_assoc($resultset) ) {
                                     ?>
                                         <tr>
-                                            <td style="width: 20%"><?php echo date('Y-m-d', strtotime($developer ['date'])); ?></td>
-                                            <td style="width: 50%" title="<?php echo $developer ['des']; ?>"><?php echo $developer ['des']; ?></td>
-                                            <td style="width: 30%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
+                                            <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['date'])); ?></td>
+                                            <td style="width: 65%" title="<?php echo $developer ['des']; ?>"><?php echo $developer ['des']; ?></td>
+                                            <td style="width: 25%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>
@@ -210,7 +198,7 @@
 <?php
 function getDisList($con){
     $resultset = null;
-    if(isset($_GET['pID']){
+    if(isset($_GET['pID'])){
         $pID = $_GET['pID'];
         $sql_query = "SELECT d.id, d.date, d.des, u.name FROM disease d INNER JOIN user u ON d.doctorID = u.id WHERE d.patientID = $pID ORDER BY d.date DESC;";
         $resultset = mysqli_query($con, $sql_query);
