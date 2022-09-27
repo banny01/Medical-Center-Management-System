@@ -104,11 +104,9 @@
                             </button>
                             <?php } 
                             if($level == 0 || $level == 2){ ?>
-                            <a href="searchPatient.php">
-                                <button type="button" class="col-md-3 btn btn-light mr-4 mt-2">
-                                    <i class="fa fa-edit" aria-hidden="true"></i><br>Add Results
-                                </button>
-                            </a>
+                            <button type="button" class="col-md-3 btn btn-light mr-4 mt-2" onclick="addRes()">
+                                <i class="fa fa-edit" aria-hidden="true"></i><br>Add Results
+                            </button>
                             <?php } ?>
                         </div>
                     </div>
@@ -302,6 +300,11 @@
                 }
             }
         }
+    }
+
+    function addRes(){
+        pID = document.getElementById("pID").value
+        window.location = "manageResutls.php?pID="+pID+"&done=0";
     }
     
 </script>

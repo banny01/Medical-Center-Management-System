@@ -66,6 +66,14 @@
                                     <td style="width: 45%" title="<?php echo $developer ['results']; ?>"><?php echo $developer ['results']; ?></td>
                                     <td style="width: 20%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
                                     <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['doneDate'])); ?></td>
+                                    <?php 
+                                    if(isset($_GET['done'])){ 
+                                        if($_GET['done'] == "0"){ ?>
+                                    <td class="font-weight-bold">
+                                        <button type="button" onclick="add(<?php echo $developer ['id']; ?>)" class="btn btn-success">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </td><?php } } ?>
                                 </tr>
                                 <?php $i++; } ?>
                             </tbody>
@@ -195,6 +203,9 @@
         
     });
 
+    function add(id){
+        window.location = "addResult.php?id="+id;
+    }
     
 </script>
 
@@ -204,7 +215,14 @@ function getResList($con){
     $resultset = null;
     if(isset($_GET['pID'])){
         $pID = $_GET['pID'];
-        $sql_query = "SELECT t.id, t.doneDate, t.testName, t.results, t.date, u.name FROM test t INNER JOIN user u ON t.doctorID = u.id WHERE t.patientID = $pID ORDER BY t.date DESC;";
+        $sql_query = "SELECT t.id, t.doneDate, t.testName, t.results, t.date, u.name FROM test t INNER JOIN user u ON t.doctorID = u.id WHERE t.patientID = $pID ";
+        if(isset($_GET['done'])){
+            $done = $_GET['done'];
+            if($done == "0"){
+                $sql_query = $sql_query."AND done = 0 ";
+            }
+        }
+        $sql_query = $sql_query."ORDER BY t.date DESC;";
         $resultset = mysqli_query($con, $sql_query);
     }
 
