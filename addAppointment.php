@@ -44,7 +44,7 @@
             <h5>Appointments > Add Appointment</h5>
             <?php 
             if ($errors==1) {                    
-                echo ('<p id="info" class="alert alert-danger text-center fade show">Recode Not Saved.! Please check and try again.</p>');					
+                echo ('<p id="info" class="alert alert-danger text-center fade show">Recorde Not Saved.! Please check and try again.</p>');					
             }
             if ($errors==0) {                    
                 echo ('<p id="info" class="alert alert-success text-center fade show">Appointment added succesfully.!</p>');
