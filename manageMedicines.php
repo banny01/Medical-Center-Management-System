@@ -44,28 +44,28 @@
             <div class="container mt-4">
                 <div class="row">
                     <div class="table-responsive">
-                    <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                        <th>Date</th>
-                                        <th>Medicines</th>
-                                        <th>Doctor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="myTable">
-                                    <?php 
-                                    $resultset = getMedList($con);
-                                    $i = 1;
-                                    while( $developer = mysqli_fetch_assoc($resultset) ) {
-                                    ?>
-                                        <tr>
-                                            <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['date'])); ?></td>
-                                            <td style="width: 65%" title="<?php echo $developer ['medicines']; ?>"><?php echo $developer ['medicines']; ?></td>
-                                            <td style="width: 25%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
-                                        </tr>
-                                        <?php $i++; } ?>
-                                    </tbody>
-                                </table> 
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                <th>Date</th>
+                                <th>Medicines</th>
+                                <th>Doctor</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            <?php 
+                            $resultset = getMedList($con);
+                            $i = 1;
+                            while( $developer = mysqli_fetch_assoc($resultset) ) {
+                            ?>
+                                <tr>
+                                    <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['date'])); ?></td>
+                                    <td style="width: 65%" title="<?php echo $developer ['medicines']; ?>"><?php echo $developer ['medicines']; ?></td>
+                                    <td style="width: 25%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
+                                </tr>
+                                <?php $i++; } ?>
+                            </tbody>
+                        </table> 
                     </div>
                     <div class="col-md-12 text-center">
                         <ul class="pagination pagination-lg pager" id="myPager"></ul>

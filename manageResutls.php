@@ -44,32 +44,32 @@
             <div class="container mt-4">
                 <div class="row">
                     <div class="table-responsive">
-                    <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                        <th>Date</th>
-                                        <th>Test Name</th>
-                                        <th>Results</th>
-                                        <th>Doctor</th>
-                                        <th>Tested on</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="myTable">
-                                    <?php 
-                                    $resultset = getResList($con);
-                                    $i = 1;
-                                    while( $developer = mysqli_fetch_assoc($resultset) ) {
-                                    ?>
-                                        <tr>
-                                            <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['date'])); ?></td>
-                                            <td style="width: 15%" title="<?php echo $developer ['testName']; ?>"><?php echo $developer ['testName']; ?></td>
-                                            <td style="width: 45%" title="<?php echo $developer ['results']; ?>"><?php echo $developer ['results']; ?></td>
-                                            <td style="width: 20%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
-                                            <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['doneDate'])); ?></td>
-                                        </tr>
-                                        <?php $i++; } ?>
-                                    </tbody>
-                                </table> 
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                <th>Date</th>
+                                <th>Test Name</th>
+                                <th>Results</th>
+                                <th>Doctor</th>
+                                <th>Tested on</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            <?php 
+                            $resultset = getResList($con);
+                            $i = 1;
+                            while( $developer = mysqli_fetch_assoc($resultset) ) {
+                            ?>
+                                <tr>
+                                    <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['date'])); ?></td>
+                                    <td style="width: 15%" title="<?php echo $developer ['testName']; ?>"><?php echo $developer ['testName']; ?></td>
+                                    <td style="width: 45%" title="<?php echo $developer ['results']; ?>"><?php echo $developer ['results']; ?></td>
+                                    <td style="width: 20%" title="<?php echo $developer ['name']; ?>"><?php echo $developer ['name']; ?></td>
+                                    <td style="width: 10%"><?php echo date('Y-m-d', strtotime($developer ['doneDate'])); ?></td>
+                                </tr>
+                                <?php $i++; } ?>
+                            </tbody>
+                        </table> 
                     </div>
                     <div class="col-md-12 text-center">
                         <ul class="pagination pagination-lg pager" id="myPager"></ul>

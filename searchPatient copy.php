@@ -168,7 +168,7 @@
                     <input type="text" class="col-md-12 form-control" id="test" placeholder="Test Name here..." require>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="addTest(<?php echo $uID; ?>)">Add</button>
+                    <button type="button" class="btn btn-success" onclick="addMedi(<?php echo $uID; ?>)">Add</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -285,7 +285,7 @@
         doctorID = uID;
         if(medi != null && medi != ""){
             let data = {pID: pID, doctorID: doctorID, test: test};
-            var Url = "addTest.php";
+            var Url = "addMedi.php";
             var xhr = new XMLHttpRequest();
             xhr.open('POST', Url, true);
             xhr.send(JSON.stringify(data));
@@ -295,7 +295,7 @@
                     var response1 = JSON.parse(xhr.responseText);
                     if(response1 == true){
                         alert("Record added succesfully.!");
-                        document.getElementById("test").value = "";
+                        document.getElementById("medi").value = "";
                     } else{
                         alert("Recorde Not Saved.! Please check and try again.");
                     }

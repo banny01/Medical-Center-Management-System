@@ -1,5 +1,4 @@
 <?php
-//Search Customers, Employees and Bills API
 include_once('inc/connection.php');
         $json = file_get_contents('php://input');
         $data = json_decode($json);
