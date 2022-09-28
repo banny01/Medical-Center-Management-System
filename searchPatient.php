@@ -69,7 +69,7 @@
                             <label for="" class="col-md-5">Contact :</label><label class="col-md-7" id="phone"></label>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="">Note</label>
+                            <label class="col-md-5">Note :</label>
                             <textarea type="text" class="form-control" id="patNote" placeholder="note..."></textarea>
                         </div>
                     </div>                       
