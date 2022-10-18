@@ -29,7 +29,7 @@
         include_once('inc/header.php');
         include_once('inc/func.php');
         include_once('inc/connection.php');
-        userManage($level, array(0,1));
+        userManage($level, array(0,2));
         ?>
         
     </div>

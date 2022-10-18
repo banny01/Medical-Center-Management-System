@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label class="col-md-5">Note :</label>
-                            <textarea type="text" class="form-control" id="patNote" placeholder="note..."></textarea>
+                            <label  class="col-md-11 ml-2" id="patNote" ></label>
                         </div>
                     </div>                       
                 </div>

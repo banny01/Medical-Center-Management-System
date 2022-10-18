@@ -43,19 +43,20 @@
             <br>
             <div class="col-10 mt-4 font-weight-bold">
                 Contact Us for more information.
-                <div class="row mt-4">
-                    <div class="col-2 offset-3">
+                <div class="col-2 mt-4 offset-3">
                         Call us,
                     </div>
+                <div class="row offset-4">
                     <div class="col-6">
-                        Krishan : (+94)71 034 7725 / (+94)77 505 7725
+                        Dilshani : (+94)77 995 9850
+                    </div>
+                    <div class="col-6">
+                        Nethmini : (+94)77 598 2275
                     </div>
                 </div>
-                <div class="col-10 offset-2">
+                <div class="col-10 offset-3">
                     <div class="row mt-2">
-                        <div class="col-4">Web : <a href="http://www.bannysware.com" class="text-dark">www.bannysware.com</a></div>
-                        <div class="col-4">Email : <a href="mailto: bannysware@gmail.com" class="text-dark">bannysware@gmail.com</a></div>
-                        <div class="col-4">Facebook : <a href="http://www.facebook.com/BANNYsware" class="text-dark">BANNY'sware</a></div>
+                        <div class="col-10">Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto: dilshanit13@gmail.com" class="text-dark">dilshanit13@gmail.com </a>&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto: divyarathnayake13@gmail.com" class="text-dark">divyarathnayake13@gmail.com</a></div>
                     </div>
                 </div>
             </div>

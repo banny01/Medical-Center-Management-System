@@ -49,7 +49,7 @@
                     </button>
                 </a>
                 <?php } 
-                if($level == 0 || $level == 1){ ?>
+                if($level == 0 || $level == 1 || $level == 2){ ?>
                 <a href="searchPatient.php">
                     <button type="button" class="btn btn-outline-dark mr-4 mt-2 hbtn">
                         <i class="fa fa-search" aria-hidden="true"></i><br>Search Patients
